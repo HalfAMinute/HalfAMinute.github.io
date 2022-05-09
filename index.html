@@ -1,0 +1,74 @@
+<!doctype HTML>
+<html>
+	<head>
+		<title>Test je inschattingsvermogen</title>
+		<style>
+		      body {
+			-webkit-animation: colorchange 20s infinite;
+			animation: colorchange 20s infinite;
+		      }
+		      @-webkit-keyframes colorchange {
+			0% {
+			  background: #8ebf42;
+			}
+			25% {
+			  background: #e6ebef;
+			}
+			50% {
+			  background: #1c87c9;
+			}
+			75% {
+			  background: #095484;
+			}
+			100% {
+			  background: #d0e2bc;
+			}
+		      }
+		      @keyframes colorchange {
+			0% {
+			  background: #8ebf42;
+			}
+			25% {
+			  background: #e6ebef;
+			}
+			50% {
+			  background: #1c87c9;
+			}
+			75% {
+			  background: #095484;
+			}
+			100% {
+			  background: #d0e2bc;
+			}
+		      }
+		</style>
+	</head>
+	<body>
+		<script>
+
+		function getResults() {
+			let input = window.prompt("Geef je schatting in seconden in:");
+			let inputValue = 1*input;
+			const result = document.getElementById("result");
+			let nRV = randomValue/1000;
+			let devInSeconds = inputValue-nRV;
+			let deviation = 100*(devInSeconds)/nRV;
+			let suffix = " seconden onder.";
+			if (deviation>0) {
+				suffix = " seconden boven.";
+			}
+			result.innerHTML = "Afwijking: "+Math.abs(deviation)+"%<br />Je zat er "+devInSeconds+suffix;
+			//vergelijk, doe simpele 'analyse', geef klein feitje ("x procent nauwkeuriger als testgroep, y procent ernaast)
+
+		}
+
+
+			window.alert("Na het sluiten van deze melding zul je een paar seconden wachten, en moeten schatten hoe lang je dat hebt gedaan - zonder te tellen! (Max. 30s.)");
+		randomValue = 1000*Math.floor(Math.random()*16+15);
+		//console.log(randomValue);
+		setTimeout(getResults,randomValue);
+				</script>
+		<h3 class="text" id="result">Even wachten...</h3>
+	</body>
+</html>
+
