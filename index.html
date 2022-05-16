@@ -53,13 +53,12 @@
 			let nRV = randomValue/1000;
 			let devInSeconds = inputValue-nRV;
 			let deviation = 100*(devInSeconds)/nRV;
-			let posDev = (deviation**2)**0.5;
+			let posDevIS = (devInSeconds**2)**0.5;
 			let suffix = " seconden onder.";
 			if (deviation>0) {
 				suffix = " seconden boven.";
 			}
-			result.innerHTML = "Afwijking: "+posDev+"%<br />Je zat er "+devInSeconds+suffix;
-			//vergelijk, doe simpele 'analyse', geef klein feitje ("x procent nauwkeuriger als testgroep, y procent ernaast)
+			result.innerHTML = "Afwijking: "+deviation +"%<br />Je zat er "+posDevIS+suffix;
 
 		}
 
